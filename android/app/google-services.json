@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "707139369999",
+    "project_id": "houserabbit-9e338",
+    "storage_bucket": "houserabbit-9e338.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:707139369999:android:f4dd578dbdcbc682d0377a",
+        "android_client_info": {
+          "package_name": "houserabbit.com.house_rabbit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "707139369999-cgiq3imicanvhslsatv3nkn03eohrv07.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "houserabbit.com.house_rabbit",
+            "certificate_hash": "257466d87ceb14789d9b10982d1a43616130c7d0"
+          }
+        },
+        {
+          "client_id": "707139369999-7h0mf5l69tlba15p14k0noofkm6ijbdf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBp8uiPG2wFREjI1T8DzJCuTEEoy58bQc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "707139369999-7h0mf5l69tlba15p14k0noofkm6ijbdf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "707139369999-fqi17jgtlj1t1gkfkqj785v0ssdtp26q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "houserabbit.com.houseRabbit.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
