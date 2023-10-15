@@ -1,25 +1,32 @@
 import 'package:flutter/material.dart';
 
 class LoginButtonViewWidget extends StatelessWidget {
-  final String path;
-  final VoidCallback onTap;
-  const LoginButtonViewWidget({required this.path, required this.onTap});
+  //final Function()? onTap;
+
+  const LoginButtonViewWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5.0,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-      clipBehavior: Clip.antiAlias,
-      child: Ink.image(
-        image: AssetImage('assets/images/$path.png'),
-        width: 310,
-        height: 60,
-        fit: BoxFit.fill,
-        child: InkWell(onTap: onTap),
+    return GestureDetector(
+      //onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.all(20),
+        margin: const EdgeInsets.symmetric(horizontal: 30),
+        decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: const Center(
+          child: Text(
+            "로그인",
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+          ),
+        ),
       ),
     );
   }
 }
-
-
