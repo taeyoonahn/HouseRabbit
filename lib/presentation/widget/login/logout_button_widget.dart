@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class LogoutButtonViewWidget extends StatelessWidget {
+class LogoutButtonWidget extends StatelessWidget {
   final VoidCallback onTap;
-  const LogoutButtonViewWidget({required this.onTap});
+  const LogoutButtonWidget({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

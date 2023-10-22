@@ -1,24 +1,29 @@
 import 'package:flutter/material.dart';
 
-class LoginIconButtonViewWidget extends StatelessWidget {
+class LoginIconButtonWidget extends StatelessWidget {
   final String imagePath;
-  const LoginIconButtonViewWidget({
+  final VoidCallback onTap;
+  const LoginIconButtonWidget({
     super.key,
     required this.imagePath,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black12, width: 1.5),
         borderRadius: BorderRadius.circular(16),
         color: Colors.white,
       ),
-      child: Image.asset(
-        'assets/images/$imagePath.png',
-        height: 35,
+      child: InkWell(
+        onTap: onTap,
+        child: Image.asset(
+          'assets/images/$imagePath.png',
+          height: 35,
+        ),
       ),
     );
   }

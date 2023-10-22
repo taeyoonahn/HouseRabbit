@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class LoginTextFieldViewWidget extends StatelessWidget {
+class LoginTextFieldWidget extends StatelessWidget {
   final dynamic controller;
   final String labelText;
   final bool obscureText;
   final Icon loginIcon;
 
-  const LoginTextFieldViewWidget({
+  const LoginTextFieldWidget({
     super.key,
     required this.controller,
     required this.labelText,

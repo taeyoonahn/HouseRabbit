@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class LoginSquareButtonViewWidget extends StatelessWidget {
+class LoginSquareButtonWidget extends StatelessWidget {
   final String imagePath;
   final VoidCallback onTap;
-  const LoginSquareButtonViewWidget({required this.imagePath, required this.onTap});
+  const LoginSquareButtonWidget({super.key, required this.imagePath, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

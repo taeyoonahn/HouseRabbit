@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:house_rabbit/domain/use_case/use_cases.dart';
+import 'package:house_rabbit/presentation/view/user_info_view.dart';
 import 'package:house_rabbit/utils/login_platform_utils.dart';
 
 
@@ -32,7 +33,7 @@ class LoginViewModel with ChangeNotifier {
         break;
     }
     if(_user != null) {
-      Navigator.pushNamed(context, '/navigation');
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const UserInfoView()));
     }
   }
 

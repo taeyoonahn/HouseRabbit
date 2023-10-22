@@ -2,7 +2,7 @@ import 'package:house_rabbit/data/data_repository/sign_data_repository.dart';
 import 'package:house_rabbit/data/data_source/sign_data_source.dart';
 import 'package:house_rabbit/domain/domain_repository/login_domain_repository.dart';
 import 'package:house_rabbit/presentation/view_model/bottom_navigation_bar_view_model.dart';
-import 'package:house_rabbit/presentation/view_model/sign_view_model.dart';
+import 'package:house_rabbit/presentation/view_model/login_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:house_rabbit/domain/use_case/use_case_classification/sign_use_case/apple_login_use_case.dart';

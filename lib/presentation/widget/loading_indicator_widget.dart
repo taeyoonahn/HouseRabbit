@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class LoadingIndicatorViewWidget extends StatelessWidget {
-  const LoadingIndicatorViewWidget({Key? key}) : super(key: key);
+class LoadingIndicatorWidget extends StatelessWidget {
+  const LoadingIndicatorWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

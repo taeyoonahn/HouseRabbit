@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:house_rabbit/presentation/view_model/sign_view_model.dart';
+import 'package:house_rabbit/presentation/view_model/login_view_model.dart';
 import 'dart:async';
 import 'package:provider/provider.dart';
 
@@ -18,7 +18,7 @@ class _SplashViewState extends State<SplashView> {
     final loginViewModel = context.read<LoginViewModel>();
     User? user = loginViewModel.user;
     Future.delayed(const Duration(seconds: 2), () async {
-      Navigator.pushNamed(context, user != null ? '/home' : '/login');
+      Navigator.pushNamed(context,'/navigation',);
     });
   }
 
@@ -34,7 +34,7 @@ class _SplashViewState extends State<SplashView> {
             end: Alignment.bottomRight,
             colors: [
               Color(0xFF2962FF),
-              Color(0xFF1A237E),
+              Color(0xff281537),
             ],
           ),
         ),
@@ -43,7 +43,7 @@ class _SplashViewState extends State<SplashView> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Image.asset(
-              'assets/images/title.png',
+              'assets/images/title_splash.png',
               height: 300.0,
               width: 300.0,
             ),

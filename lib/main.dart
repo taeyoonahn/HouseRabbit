@@ -29,6 +29,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'HouseRabbit',
+      theme: ThemeData(
+        fontFamily: 'SCDream',
+      ),
       home: const SplashView(),
       routes: routes,
     );
