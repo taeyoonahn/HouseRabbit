@@ -7,8 +7,8 @@ import '../../view/user_info_navigation_view.dart';
 import '../../view/user_info_view.dart';
 
 class NavigationBodyWidget extends StatelessWidget {
-  const NavigationBodyWidget({super.key});
-  final _pages = const[HomeView(), UserInfoNavigationView(), UserInfoNavigationView()];
+  NavigationBodyWidget({super.key});
+  final _pages = [HomeView(), const UserInfoNavigationView(), const UserInfoNavigationView()];
 
   @override
   Widget build(BuildContext context) {

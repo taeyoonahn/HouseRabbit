@@ -64,8 +64,8 @@ class LoginViewModel with ChangeNotifier {
     }
   }
 
-  void singOut(BuildContext context,LoginPlatform loginPlatform) async {
-    switch (loginPlatform) {
+  void singOut(BuildContext context) async {
+    switch (_loginPlatform) {
       case LoginPlatform.naver:
         break;
       case LoginPlatform.kakao:
