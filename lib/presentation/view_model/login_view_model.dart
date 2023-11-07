@@ -15,10 +15,6 @@ class LoginViewModel with ChangeNotifier {
 
   void signIn (BuildContext context, String loginPlatform) async {
     switch(loginPlatform) {
-      case 'naver':
-        _loginPlatform = LoginPlatform.naver;
-        signInWithNaver();
-        break;
       case 'kakao' :
         _loginPlatform = LoginPlatform.kakao;
         signInWithKakao();
@@ -29,17 +25,12 @@ class LoginViewModel with ChangeNotifier {
         break;
       case 'apple' :
         _loginPlatform = LoginPlatform.apple;
-        signInWithApple();
+        await signInWithApple();
         break;
     }
     if(_user != null) {
       Navigator.push(context, MaterialPageRoute(builder: (context) => const UserInfoView()));
     }
-  }
-
-  void signInWithNaver() {
-    useCases.naverLogin;
-    notifyListeners();
   }
 
   void signInWithKakao() async {
@@ -53,8 +44,9 @@ class LoginViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  void signInWithApple() async {
-    useCases.appleLogin;
+  Future<void> signInWithApple() async {
+    UserCredential userCredential = await useCases.appleLogin();
+    _user = userCredential.user;
     notifyListeners();
   }
 
@@ -66,8 +58,6 @@ class LoginViewModel with ChangeNotifier {
 
   void singOut(BuildContext context) async {
     switch (_loginPlatform) {
-      case LoginPlatform.naver:
-        break;
       case LoginPlatform.kakao:
         try {
           useCases.kakaoLogout;

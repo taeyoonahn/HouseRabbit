@@ -1,12 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 class LoginDataSource {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
-
-  Future<void> naverLogin() async {
-  }
 
   Future<void> kakaoLogin() async {
   }
@@ -22,10 +20,20 @@ class LoginDataSource {
     return userCredential;
   }
 
-  Future<void> appleLogin() async {
-  }
+  Future<UserCredential> appleLogin() async {
+    final appleCredential = await SignInWithApple.getAppleIDCredential(
+      scopes: [
+        AppleIDAuthorizationScopes.email,
+        AppleIDAuthorizationScopes.fullName,
+      ],
+    );
 
-  Future<void> naverLogout() async {
+    final oauthCredential = OAuthProvider("apple.com").credential(
+      idToken: appleCredential.identityToken,
+      accessToken: appleCredential.authorizationCode,
+    );
+
+    return await FirebaseAuth.instance.signInWithCredential(oauthCredential);
   }
 
   Future<void> kakaoLogout() async {
@@ -37,5 +45,6 @@ class LoginDataSource {
   }
 
   Future<void> appleLogout() async {
+    await _auth.signOut();
   }
 }

@@ -12,8 +12,6 @@ import 'package:house_rabbit/domain/use_case/use_case_classification/sign_use_ca
 import 'package:house_rabbit/domain/use_case/use_case_classification/sign_use_case/google_logout_use_case.dart';
 import 'package:house_rabbit/domain/use_case/use_case_classification/sign_use_case/kakao_login_use_case.dart';
 import 'package:house_rabbit/domain/use_case/use_case_classification/sign_use_case/kakao_logout_use_case.dart';
-import 'package:house_rabbit/domain/use_case/use_case_classification/sign_use_case/naver_login_use_case.dart';
-import 'package:house_rabbit/domain/use_case/use_case_classification/sign_use_case/naver_logout_use_case.dart';
 import 'package:house_rabbit/domain/use_case/use_cases.dart';
 
 Future<List<SingleChildWidget>> providerDi() async {
@@ -22,11 +20,9 @@ Future<List<SingleChildWidget>> providerDi() async {
   LoginDomainRepository loginDomainRepository = LoginDataRepository(loginDataSource);
 
   UseCases useCases = UseCases(
-    naverLogin: NaverLoginUseCase(loginDomainRepository),
     kakaoLogin: KakaoLoginUseCase(loginDomainRepository),
     appleLogin: AppleLoginUseCase(loginDomainRepository),
     googleLogin: GoogleLoginUseCase(loginDomainRepository),
-    naverLogout: NaverLogoutUseCase(loginDomainRepository),
     kakaoLogout: KakaoLogoutUseCase(loginDomainRepository),
     appleLogout: AppleLogoutUseCase(loginDomainRepository),
     googleLogout: GoogleLogoutUseCase(loginDomainRepository),
