@@ -7,12 +7,23 @@ class LoginDataRepository implements LoginDomainRepository{
   LoginDataRepository(this.loginDataSource);
 
   @override
-  Future<void> kakaoLogin() async {
+  Future<UserCredential> kakaoLogin() async {
+    return loginDataSource.kakaoLogin();
+  }
+
+  @override
+  Future<void> kakaoLogout() async {
+    return loginDataSource.kakaoLogout();
   }
 
   @override
   Future<UserCredential> googleLogin() async {
     return loginDataSource.googleLogin();
+  }
+
+  @override
+  Future<void> googleLogout() async {
+    return loginDataSource.googleLogout();
   }
 
   @override
@@ -22,15 +33,7 @@ class LoginDataRepository implements LoginDomainRepository{
 
   @override
   Future<void> appleLogout() async {
-  }
-
-  @override
-  Future<void> googleLogout() async {
-    return loginDataSource.googleLogout();
-  }
-
-  @override
-  Future<void> kakaoLogout() async {
+    return loginDataSource.appleLogout();
   }
 }
 

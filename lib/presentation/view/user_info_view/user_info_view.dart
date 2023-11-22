@@ -5,10 +5,10 @@ import 'package:house_rabbit/presentation/view_model/login_view_model.dart';
 import 'package:ionicons/ionicons.dart';
 import 'dart:async';
 import 'package:provider/provider.dart';
-import '../view_model/ad_mob_view_model.dart';
-import '../widget/UserInfo/payment_button_widget.dart';
-import '../widget/loading_indicator_widget.dart';
-import 'login_view.dart';
+import '../../view_model/ad_mob_view_model.dart';
+import '../../widget/UserInfo/payment_button_widget.dart';
+import '../../widget/loading_indicator_widget.dart';
+import '../login_view/login_view.dart';
 
 class UserInfoView extends StatelessWidget {
   const UserInfoView({super.key});

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:house_rabbit/presentation/view_model/bottom_navigation_bar_view_model.dart';
 import 'package:provider/provider.dart';
-import '../../view/home_view.dart';
-import '../../view/memo_view.dart';
-import '../../view/user_info_navigation_view.dart';
-import '../../view/user_info_view.dart';
+import '../../view/home_view/home_view.dart';
+import '../../view/memo_view/memo_view.dart';
+import '../../view/user_info_view/user_info_navigation_view.dart';
+import '../../view/user_info_view/user_info_view.dart';
 
 class NavigationBodyWidget extends StatelessWidget {
   NavigationBodyWidget({super.key});

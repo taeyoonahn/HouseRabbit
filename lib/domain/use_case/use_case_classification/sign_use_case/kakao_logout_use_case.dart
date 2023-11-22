@@ -5,6 +5,6 @@ class KakaoLogoutUseCase {
   KakaoLogoutUseCase(this.loginDomainRepository);
 
   Future<void> call() async{
-    await loginDomainRepository.kakaoLogin();
+    await loginDomainRepository.kakaoLogout();
   }
 }

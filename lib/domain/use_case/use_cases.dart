@@ -7,18 +7,18 @@ import 'package:house_rabbit/domain/use_case/use_case_classification/sign_use_ca
 
 class UseCases {
   final KakaoLoginUseCase kakaoLogin;
-  final GoogleLoginUseCase googleLogin;
-  final AppleLoginUseCase appleLogin;
   final KakaoLogoutUseCase kakaoLogout;
+  final GoogleLoginUseCase googleLogin;
   final GoogleLogoutUseCase googleLogout;
+  final AppleLoginUseCase appleLogin;
   final AppleLogoutUseCase appleLogout;
 
   UseCases({
     required this.kakaoLogin,
-    required this.googleLogin,
-    required this.appleLogin,
     required this.kakaoLogout,
+    required this.googleLogin,
     required this.googleLogout,
     required this.appleLogout,
+    required this.appleLogin,
   });
 }

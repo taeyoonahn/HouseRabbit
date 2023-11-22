@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:house_rabbit/presentation/view_model/login_view_model.dart';
+import 'package:provider/provider.dart';
+
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
 
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 2), () async {
-      Navigator.pushNamed(context,'/navigation',);
+        Navigator.pushNamed(context, '/navigation',);
     });
 
     return Scaffold(

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:house_rabbit/presentation/view/user_info_view/privacy_policy_view.dart';
+import 'package:house_rabbit/presentation/view/user_info_view/terms_of_use_view.dart';
 import 'package:provider/provider.dart';
 import 'package:house_rabbit/presentation/view_model/login_view_model.dart';
 
-import '../view_model/ad_mob_view_model.dart';
-import '../widget/login/login_icon_button_expanded_widget.dart';
-import '../widget/login/login_icon_button_widget.dart';
+import '../../view_model/ad_mob_view_model.dart';
+import '../../widget/login/login_icon_button_expanded_widget.dart';
+import '../../widget/login/login_icon_button_widget.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -87,7 +89,7 @@ class LoginView extends StatelessWidget {
                         children: [
                           const Text("회원가입을 진행할 경우, ",style: TextStyle(fontSize: 8.5, fontWeight: FontWeight.bold, color: Colors.grey),),
                           TextButton(
-                            onPressed: (){},
+                            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => const TermsOfUseView()));},
                             style: TextButton.styleFrom(minimumSize: Size.zero, padding: EdgeInsets.zero, tapTargetSize: MaterialTapTargetSize.shrinkWrap,),
                             child: const DecoratedBox(
                               decoration: BoxDecoration(
@@ -98,7 +100,7 @@ class LoginView extends StatelessWidget {
                           ),
                           const Text(" 및 ",style: TextStyle(fontSize: 8.5, fontWeight: FontWeight.bold, color: Colors.grey,),),
                           TextButton(
-                            onPressed: (){},
+                            onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => const PrivacyPolicyView()));},
                             style: TextButton.styleFrom(minimumSize: Size.zero, padding: EdgeInsets.zero, tapTargetSize: MaterialTapTargetSize.shrinkWrap,),
                             child: const DecoratedBox(
                               decoration: BoxDecoration(
