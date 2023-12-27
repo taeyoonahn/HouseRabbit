@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:house_rabbit/presentation/widget/Navigation/go_back_buton_widget.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   const AppBarWidget({super.key});
@@ -15,7 +16,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
         child: AppBar(
           shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(bottom: Radius.circular(30))),
           backgroundColor: HexColor('#1E319D'),
-          leading: const SizedBox(), //Icon(Icons.arrow_back_ios_new_rounded),
+          leading: const GoBackButtonWidget(),
           title: Image.asset(
             'assets/images/title_main.png',
             width: 100,

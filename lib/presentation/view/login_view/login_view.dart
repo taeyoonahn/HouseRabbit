@@ -24,7 +24,7 @@ class LoginView extends StatelessWidget {
         child: Container(
           width: double.infinity,
           height: double.infinity,
-          margin: const EdgeInsets.all(15.0),
+          margin: const EdgeInsets.all(18.0),
           child: Column(
             children: [
               Container(
@@ -87,7 +87,7 @@ class LoginView extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          const Text("회원가입을 진행할 경우, ",style: TextStyle(fontSize: 8.5, fontWeight: FontWeight.bold, color: Colors.grey),),
+                          const Text("회원가입을 진행할 경우, ",style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold, color: Colors.grey),),
                           TextButton(
                             onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => const TermsOfUseView()));},
                             style: TextButton.styleFrom(minimumSize: Size.zero, padding: EdgeInsets.zero, tapTargetSize: MaterialTapTargetSize.shrinkWrap,),
@@ -95,10 +95,10 @@ class LoginView extends StatelessWidget {
                               decoration: BoxDecoration(
                                 border: Border(bottom: BorderSide(color: Colors.grey,),),
                               ),
-                              child: Text('서비스 약관', style: TextStyle(fontSize: 8.5, fontWeight: FontWeight.bold, color: Colors.grey,),),
+                              child: Text('서비스 약관', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold, color: Colors.grey,),),
                             ),
                           ),
-                          const Text(" 및 ",style: TextStyle(fontSize: 8.5, fontWeight: FontWeight.bold, color: Colors.grey,),),
+                          const Text(" 및 ",style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold, color: Colors.grey,),),
                           TextButton(
                             onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => const PrivacyPolicyView()));},
                             style: TextButton.styleFrom(minimumSize: Size.zero, padding: EdgeInsets.zero, tapTargetSize: MaterialTapTargetSize.shrinkWrap,),
@@ -106,10 +106,10 @@ class LoginView extends StatelessWidget {
                               decoration: BoxDecoration(
                                 border: Border(bottom: BorderSide(color: Colors.grey,),),
                               ),
-                              child: Text('개인정보 처리방침', style: TextStyle(fontSize: 8.5, fontWeight: FontWeight.bold, color: Colors.grey,),),
+                              child: Text('개인정보 처리방침', style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold, color: Colors.grey,),),
                             ),
                           ),
-                          const Text("에 동의한 것으로 간주합니다.",style: TextStyle(fontSize: 8.5, fontWeight: FontWeight.bold, color: Colors.grey,),),
+                          const Text("에 동의한 것으로 간주합니다.",style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold, color: Colors.grey,),),
                         ],
                       ),
                     ),

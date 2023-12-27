@@ -1,5 +1,3 @@
-import 'package:house_rabbit/presentation/view/login_view/find_password_view.dart';
-import 'package:house_rabbit/presentation/view/login_view/sign_up_view.dart';
 import '../presentation/view/login_view/splash_view.dart';
 import '../presentation/view/login_view/login_view.dart';
 import '../presentation/view/home_view/home_view.dart';
@@ -11,8 +9,6 @@ import '../presentation/view/user_info_view/user_info_view.dart';
 final routes = {
   '/splash': (context) => const SplashView(),
   '/login': (context) => const LoginView(),
-  '/signUp': (context) => const SignUpView(),
-  '/findPassword': (context) => const FindPasswordView(),
   '/navigation': (context) => const NavigationView(),
   '/home': (context) => HomeView(),
   // '/houseInfo': (context) => const HouseInfoView(),

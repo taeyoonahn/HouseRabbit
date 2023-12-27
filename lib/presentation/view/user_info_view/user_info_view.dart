@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:house_rabbit/presentation/view/user_info_view/terms_of_use_view.dart';
 import 'package:house_rabbit/presentation/view_model/login_view_model.dart';
 import 'package:ionicons/ionicons.dart';
 import 'dart:async';
@@ -84,8 +85,8 @@ class UserInfoView extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            TextButton(onPressed: (){}, child: const Text('약관 및 정책',style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.black87),),),
-                            const SizedBox(width: 40,),
+                            TextButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => const TermsOfUseView()));}, child: const Text('이용약관',style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.black87),),),
+                            const SizedBox(width: 70,),
                             TextButton(onPressed: (){}, child: const Text('고객센터',style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.black87),),),
                           ],
                         ),

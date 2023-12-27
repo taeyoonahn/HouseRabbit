@@ -1,61 +1,106 @@
-Future<User?> signInWithKakao() async {
-  if (await k.isKakaoTalkInstalled()) {
-    try {
-      final response = await k.UserApi.instance.loginWithKakaoTalk();
-    } catch (error) {
-      print('카카오톡으로 로그인 실패 $error');
+import "package:flutter/material.dart";
+import 'package:webview_flutter/webview_flutter.dart';
+import 'package:webview_flutter_android/webview_flutter_android.dart';
+import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
-      // 사용자가 카카오톡 설치 후 디바이스 권한 요청 화면에서 로그인을 취소한 경우,
-      // 의도적인 로그인 취소로 보고 카카오계정으로 로그인 시도 없이 로그인 취소로 처리 (예: 뒤로 가기)
-      if (error is PlatformException && error.code == 'CANCELED') {
-        print('카카오톡으로 로그인 실패 $error');
-      }
-      // 카카오톡에 연결된 카카오계정이 없는 경우, 카카오계정으로 로그인
-      try {
-        final response = await k.UserApi.instance.loginWithKakaoAccount();
-      } catch (error) {
-        print('카카오계정으로 로그인 실패 $error');
-      }
-    }
-  } else {
-    try {
-      final response = await k.UserApi.instance.loginWithKakaoAccount();
-    } catch (error) {
-      print('카카오계정으로 로그인 실패 $error');
-    }
-  }
-  k.User? kakaoUser = await k.UserApi.instance.me();
-  final kakaoToken = await createCustomToken({'uid': kakaoUser!.id.toString(),});
-  final userCredential = await _firebaseAuth.signInWithCustomToken(kakaoToken);
-  final user = userCredential.user;
-  final idToken = await user!.getIdToken();
-
-  // Optionally get FCM token for push notifications
-  FirebaseMessaging messaging = FirebaseMessaging.instance;
-  String? token = await messaging.getToken();
-  await _storeUserInfoInPrefs(user, token);
-  String? nickname = kakaoUser.kakaoAccount!.profile!.nickname;
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  prefs.setString("displayName", nickname!);
-  prefs.setString("email", kakaoUser!.kakaoAccount!.email!);
-  int userCheck = await this.isRegistered(kakaoUser!.kakaoAccount!.email!);
-  if(userCheck != 0){
-    updateMessagingToken(userCheck, token!);
-    authenticateFromServer(idToken, user!.email!);
-    Get.to(HomeScreen());
-  }else{
-    Get.to(SignupScreen());
-  }
-
-  return user;
+void main() {
+  runApp(const MyApp());
 }
 
-Future<String> createCustomToken(Map<String, dynamic> user) async {
-  final customTokenResponse = await http
-      .post(Uri.parse('$baseUrl/auth/kakao/callback'), body: user);
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-  final responseJson = jsonDecode(customTokenResponse.body);
-  print('Received Token from server: ${responseJson['firebaseToken']}');
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      title: 'Flutter App',
+      home: WebViewPage(),
+    );
+  }
+}
 
-  return responseJson['firebaseToken'];
+class WebViewPage extends StatefulWidget {
+  const WebViewPage({super.key});
+
+  @override
+  State<WebViewPage> createState() => _WebViewPageState();
+}
+
+class _WebViewPageState extends State<WebViewPage> {
+  late final WebViewController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+
+    late final PlatformWebViewControllerCreationParams params;
+    if (WebViewPlatform.instance is WebKitWebViewPlatform) {
+      params = WebKitWebViewControllerCreationParams(
+        allowsInlineMediaPlayback: true,
+        mediaTypesRequiringUserAction: const <PlaybackMediaTypes>{},
+      );
+    } else {
+      params = const PlatformWebViewControllerCreationParams();
+    }
+
+    final WebViewController controller =
+    WebViewController.fromPlatformCreationParams(params);
+
+    controller
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setBackgroundColor(const Color(0x00000000))
+      ..setNavigationDelegate(
+        NavigationDelegate(
+          onProgress: (int progress) {
+            debugPrint('WebView is loading (progress : $progress%)');
+          },
+          onPageStarted: (String url) {
+            debugPrint('Page started loading: $url');
+          },
+          onPageFinished: (String url) {
+            debugPrint('Page finished loading: $url');
+          },
+          onWebResourceError: (WebResourceError error) {
+            debugPrint('''
+              Page resource error:
+                code: ${error.errorCode}
+                description: ${error.description}
+                errorType: ${error.errorType}
+                isForMainFrame: ${error.isForMainFrame}
+          ''');
+          },
+          onNavigationRequest: (NavigationRequest request) {
+            debugPrint('allowing navigation to ${request.url}');
+            return NavigationDecision.navigate;
+          },
+        ),
+      )
+      ..addJavaScriptChannel(
+        'Toaster',
+        onMessageReceived: (JavaScriptMessage message) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(message.message)),
+          );
+        },
+      )
+      ..loadRequest(Uri.parse('https://flutter.dev/'));
+
+    if (controller.platform is AndroidWebViewController) {
+      AndroidWebViewController.enableDebugging(true);
+      (controller.platform as AndroidWebViewController)
+          .setMediaPlaybackRequiresUserGesture(false);
+    }
+
+    _controller = controller;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        bottom: false,
+        child: WebViewWidget(controller: _controller),
+      ),
+    );
+  }
 }

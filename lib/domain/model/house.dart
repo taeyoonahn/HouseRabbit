@@ -1,6 +1,5 @@
-// class House {
-//   String title;
-//   String content;
-//   int? id;
-//   int timestamp;
-// }
+class House {
+  int? id;
+  int timestamp = 0;
+  String name = '여의도 파크라움';
+}
