@@ -7,7 +7,7 @@ class HouseAddButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 300,
-      height: 60,
+      height: 58,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
           color: Colors.white70,
@@ -27,7 +27,7 @@ class HouseAddButtonWidget extends StatelessWidget {
             )
           ]
       ),
-      child: const Center(child: Icon(Icons.add_home)),
+      child: const Center(child: Icon(Icons.add_home, color: Colors.black87)),
     );
   }
 }

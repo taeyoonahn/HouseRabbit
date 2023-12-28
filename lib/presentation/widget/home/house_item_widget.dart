@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import '../../../domain/model/house.dart';
 
 class HouseItemWidget extends StatelessWidget {
@@ -36,17 +37,28 @@ class HouseItemWidget extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    house.name,
-                    //maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(fontSize: 16, color: Colors.black87),
+                  Flexible(
+                    fit: FlexFit.tight,
+                    child: Text(
+                      house.name,
+                      //maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(fontSize: 16, color: Colors.black87, fontWeight: FontWeight.bold),
+                    ),
                   ),
-                  Text(
-                    house.name,
-                    //maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(fontSize: 16, color: Colors.black87),
+                  const SizedBox(width: 100),
+                  GestureDetector(
+                    onTap: () {
+                      onDeleteTap?.call();
+                    },
+                    child: Icon(Icons.create_rounded, color: Colors.grey[700]),
+                  ),
+                  const SizedBox(width: 15),
+                  GestureDetector(
+                    onTap: () {
+                      onDeleteTap?.call();
+                    },
+                    child: Icon(Icons.delete, color: Colors.grey[700]),
                   ),
                 ],
               ),
