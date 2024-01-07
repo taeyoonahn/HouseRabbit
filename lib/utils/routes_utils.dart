@@ -1,3 +1,5 @@
+import 'package:house_rabbit/presentation/view/discrimination_view/discrimination_view_input/discrimination_input_view.dart';
+import 'package:house_rabbit/presentation/view/discrimination_view/discrimination_view_result/discrimination_result_view.dart';
 import '../presentation/view/login_view/splash_view.dart';
 import '../presentation/view/login_view/login_view.dart';
 import '../presentation/view/home_view/home_view.dart';
@@ -10,15 +12,10 @@ final routes = {
   '/splash': (context) => const SplashView(),
   '/login': (context) => const LoginView(),
   '/navigation': (context) => const NavigationView(),
-  '/home': (context) => HomeView(),
-  // '/houseInfo': (context) => const HouseInfoView(),
-  // '/discrimination': (context) => const DiscriminationView(),
-  // '/discriminationResult': (context) => const DiscriminationResultView(),
-  // '/checkList': (context) => const CheckListView(),
-  // '/memoList': (context) => const MemoListView(),
-  // '/memo': (context) => const MemoView(),
+  '/home': (context) => const HomeView(),
+  '/discriminationResult': (context) => const DiscriminationResultView(),
+  '/discriminationInput': (context) => DiscriminationInputView(),
   '/userInfo': (context) => const UserInfoView(),
   '/termsOfUse': (context) => const TermsOfUseView(),
   '/privacyPolicy': (context) => const PrivacyPolicyView(),
-  // '/payment': (context) => const PaymentView(),
 };

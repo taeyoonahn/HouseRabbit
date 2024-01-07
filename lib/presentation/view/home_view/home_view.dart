@@ -4,7 +4,6 @@ import 'package:house_rabbit/presentation/view_model/ad_mob_view_model.dart';
 import 'package:house_rabbit/presentation/widget/home/house_add_button_widget.dart';
 import 'package:house_rabbit/presentation/widget/home/search_house_widget.dart';
 import 'package:provider/provider.dart';
-
 import '../../../domain/model/house.dart';
 import '../../widget/home/house_item_widget.dart';
 
